@@ -386,7 +386,7 @@ DEPENDENCIES
   simplecov
   sprockets-rails
   stimulus-rails
-  tailwindcss-rails
+  tailwindcss-rails (~> 2.7)
   turbo-rails
   tzinfo-data
   web-console
