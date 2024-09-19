@@ -1,3 +1,5 @@
-example_id                              | status | run_time     |
---------------------------------------- | ------ | ------------ |
-./spec/requests/home/index_spec.rb[1:1] | passed | 3.02 seconds |
+example_id                                 | status | run_time        |
+------------------------------------------ | ------ | --------------- |
+./spec/requests/api/users_spec.rb[1:1:1:1] | failed | 0.87257 seconds |
+./spec/requests/api/users_spec.rb[1:1:2:1] | passed | 0.03288 seconds |
+./spec/requests/home/index_spec.rb[1:1]    | passed | 3.02 seconds    |
