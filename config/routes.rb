@@ -15,5 +15,6 @@ Rails.application.routes.draw do
 
   namespace :api do
     resources :users, only: :show
+    get "/user_by_email/:email" => "api/users_by_email#show"
   end
 end
