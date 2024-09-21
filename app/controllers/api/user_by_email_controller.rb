@@ -3,7 +3,7 @@
 module Api
   class UserByEmailController < ApplicationController
     def show
-      @user = Repositories::UserRepo.new.get_by_email(email: params[:email])
+      @user = Users::Queries::FindByEmail.new.call(email: params[:email])
 
       respond_to do |format|
         format.json do
