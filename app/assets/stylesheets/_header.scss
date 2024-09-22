@@ -8,3 +8,22 @@
     color: $airbnb-logo;
   }
 }
+
+.invalid-inset-input-test-field {
+  border-color: rgb(244,63,94) !important;
+
+  label {
+    color: rgb(244,63,94) !important;
+  }
+
+  input[type="email"], input[type="test"]{
+    &:focus {
+      border-color: rgb(244,63,94) !important;
+    }
+    color: rgb(244,63,94) !important;
+  }
+}
+
+.error-message{
+  color: red !important;
+}
