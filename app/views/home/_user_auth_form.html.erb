@@ -17,10 +17,17 @@
     </div>
     <div class="pt-6">
       <h4 class="text-lg leading-6 text-gray-900 mt-2 font-medium">Welcome to Airbnb</h4>
-      <div class="mt-4 border border-gray-900 rounded-md px-3 py-2 shadow-sm focus-within:ring-1 focus-within:ring-black focus-within:border-black">
+
+      <div data-user-by-email-auth-target="emailWrapper" class="relative mt-4 border border-gray-900 rounded-md px-3 py-2 shadow-sm focus-within:ring-1 focus-within:ring-black focus-within:border-black">
         <label for="email" class="block text-xs font-medium text-gray-900">Email</label>
-        <input data-user-by-email-auth-target="email" type="text" name="email" id="email" class="block w-full border-0 p-0 text-gray-900 placeholdergray-900 focus:ring-0 sm:text-sm" placeholder="John.doe@gmail.com">
+        <input data-user-by-email-auth-target="email" type="text" name="email" id="email" class="block w-full border-0 p-0 text-gray-900 placeholder-gray-900 focus:ring-0 sm:text-sm" placeholder="John.doe@gmail.com">
+        <div data-user-by-email-auth-target="invalidSvg" class="hidden absolute inset-y-0 right-0 pr-3 pt-6 flex item-center pointer-event-none">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" class="h-5 w-5 text-red-500">
+            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-5a.75.75 0 01.75.75v4.5a.75.75 0 01-1.5 0v-4.5A.75.75 0 0110 5zm0 10a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"></path>
+          </svg>
+        </div>
       </div>
+      <p data-user-by-email-auth-target="errorMessage" class="hidden mt-2 text-sm error-message">Please enter you email.</p>
     </div>
   </div>
   <div class="my-5 sm:mt-6">
