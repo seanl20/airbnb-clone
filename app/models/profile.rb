@@ -5,6 +5,6 @@ class Profile < ApplicationRecord
   after_validation :geocode, if: -> { address.present? && latitude.blank? && longitude.blank?}
 
   def address
-    [address_1, address_2, city, state, country].compact.join(', ')
+    [address_1, address_2, city, "#{state} #{zip_code}", country].compact.join(', ')
   end
 end

@@ -10,9 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_09_25_075034) do
+ActiveRecord::Schema[7.2].define(version: 2024_09_29_045012) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "profiles", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "address_1"
+    t.string "address_2"
+    t.string "city"
+    t.string "state"
+    t.string "country"
+    t.float "latitude"
+    t.float "longitude"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "zip_code"
+    t.index ["user_id"], name: "index_profiles_on_user_id"
+  end
 
   create_table "properties", force: :cascade do |t|
     t.string "name"
@@ -27,6 +42,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_09_25_075034) do
     t.string "address_2"
     t.float "latitude"
     t.float "longitude"
+    t.string "zip_code"
     t.index ["latitude", "longitude"], name: "index_properties_on_latitude_and_longitude"
   end
 
@@ -41,4 +57,6 @@ ActiveRecord::Schema[7.2].define(version: 2024_09_25_075034) do
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
+
+  add_foreign_key "profiles", "users"
 end
