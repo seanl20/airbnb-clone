@@ -11,5 +11,6 @@ RSpec.describe Property, type: :model do
     it { should validate_presence_of(:city) }
     it { should validate_presence_of(:state) }
     it { should validate_presence_of(:country) }
+    it { is_expected.to monetize(:price).allow_nil }
   end
 end
