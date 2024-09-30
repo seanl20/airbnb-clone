@@ -1,13 +1,18 @@
 source "https://rubygems.org"
 
+# Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
 gem "devise"
 gem "dry-rails", github: "dry-rb/dry-rails"
 gem "dry-struct"
 gem "foreman"
 gem "geocoder"
+# Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
+gem "image_processing", "~> 1.2"
 gem "importmap-rails"
 gem "jbuilder"
+gem "money-rails"
+gem "ostruct"
 gem "pg", "~> 1.1"
 gem "puma", ">= 5.0"
 gem "rails", "~> 7.2.1"
@@ -35,14 +40,6 @@ gem "tzinfo-data", platforms: %i[ windows jruby ]
 
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
 # gem "bcrypt", "~> 3.1.7"
-
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-
-# Reduces boot times through caching; required in config/boot.rb
-
-# Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
-# gem "image_processing", "~> 1.2"
-
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem

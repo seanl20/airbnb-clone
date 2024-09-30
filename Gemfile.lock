@@ -177,6 +177,9 @@ GEM
     i18n (1.14.5)
       concurrent-ruby (~> 1.0)
     ice_nine (0.11.2)
+    image_processing (1.13.0)
+      mini_magick (>= 4.9.5, < 5)
+      ruby-vips (>= 2.0.17, < 3)
     importmap-rails (2.0.1)
       actionpack (>= 6.0.0)
       activesupport (>= 6.0.0)
@@ -201,8 +204,18 @@ GEM
       net-smtp
     marcel (1.0.4)
     method_source (1.1.0)
+    mini_magick (4.13.2)
     mini_mime (1.1.5)
     minitest (5.25.1)
+    monetize (1.13.0)
+      money (~> 6.12)
+    money (6.19.0)
+      i18n (>= 0.6.4, <= 2)
+    money-rails (1.15.0)
+      activesupport (>= 3.0)
+      monetize (~> 1.9)
+      money (~> 6.13)
+      railties (>= 3.0)
     msgpack (1.7.2)
     net-imap (0.4.16)
       date
@@ -227,6 +240,7 @@ GEM
     nokogiri (1.16.7-x86_64-linux)
       racc (~> 1.4)
     orm_adapter (0.5.0)
+    ostruct (0.6.0)
     parallel (1.26.3)
     parser (3.3.5.0)
       ast (~> 2.4.1)
@@ -339,6 +353,9 @@ GEM
       rubocop-performance
       rubocop-rails
     ruby-progressbar (1.13.0)
+    ruby-vips (2.2.2)
+      ffi (~> 1.12)
+      logger
     sassc (2.4.0)
       ffi (~> 1.9)
     sassc-rails (2.1.2)
@@ -421,8 +438,11 @@ DEPENDENCIES
   faker
   foreman
   geocoder
+  image_processing (~> 1.2)
   importmap-rails
   jbuilder
+  money-rails
+  ostruct
   pg (~> 1.1)
   pry-rails
   puma (>= 5.0)
