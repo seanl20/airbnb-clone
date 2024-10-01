@@ -18,4 +18,8 @@ class Property < ApplicationRecord
     # [address_1, address_2, city, state, country].compact.join(', ')
     [state, country].compact.join(', ')
   end
+
+  def default_image
+    images.first
+  end
 end
