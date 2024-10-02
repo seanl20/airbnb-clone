@@ -14,6 +14,8 @@ class Property < ApplicationRecord
 
   has_many_attached :images
 
+  has_many :reviews, as: :reviewable
+
   def address
     # [address_1, address_2, city, state, country].compact.join(', ')
     [state, country].compact.join(', ')
