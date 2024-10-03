@@ -27,3 +27,9 @@
 .error-message{
   color: red !important;
 }
+
+.grid-image{
+  position: relative;
+  padding-bottom: calc(var(--tw-aspect-h) / var(--tw-aspect-w)* 100%);
+  --tw-aspect-w: 10;
+}
