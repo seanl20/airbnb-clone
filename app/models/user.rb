@@ -5,6 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_one :profile, dependent: :destroy
+  has_many :favourites, dependent: :destroy
+  has_many :favourited_properties, through: :favourites, source: :property
   
   after_create :create_profile
 
