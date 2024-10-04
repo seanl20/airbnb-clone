@@ -16,6 +16,9 @@ class Property < ApplicationRecord
 
   has_many :reviews, as: :reviewable
 
+  has_many :favourites, dependent: :destroy
+  has_many :favourited_users, through: :favourites, source: :user
+
   def address
     # [address_1, address_2, city, state, country].compact.join(', ')
     [state, country].compact.join(', ')
