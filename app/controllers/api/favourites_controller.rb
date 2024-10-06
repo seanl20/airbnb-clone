@@ -5,24 +5,24 @@ module Api
     protect_from_forgery with: :null_session
 
     def create
-      favourites = Favourites::Commands::Create.new.call(
+      favourite = Favourites::Commands::Create.new.call(
         user_id: favourite_params["user_id"], 
         property_id: favourite_params["property_id"]
       )
 
       respond_to do |format|
         format.json do
-          render json: favourites.to_json, status: :created
+          render json: serialize_favourite(favourite), status: :created
         end
       end
     end
 
     def destroy
-      Favourites::Commands::Delete.new.call(favourite_id: params[:id])
+      favourite = Favourites::Commands::Delete.new.call(favourite_id: params[:id])
 
       respond_to do |format|
         format.json do
-          render json: {}, status: 204
+          render json: serialize_favourite(favourite), status: 204
         end
       end
     end
@@ -31,6 +31,10 @@ module Api
 
     def favourite_params
       params.permit(:user_id, :property_id)
+    end
+
+    def serialize_favourite(favourite)
+      ::FavouriteSerializer.new(favourite).serializable_hash[:data].to_json
     end
   end
 end
