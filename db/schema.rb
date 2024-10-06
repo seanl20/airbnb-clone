@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_10_04_132258) do
+ActiveRecord::Schema[7.2].define(version: 2024_10_06_102616) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -47,6 +47,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_10_04_132258) do
     t.bigint "property_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["property_id", "user_id"], name: "index_favourites_on_property_id_and_user_id", unique: true
     t.index ["property_id"], name: "index_favourites_on_property_id"
     t.index ["user_id"], name: "index_favourites_on_user_id"
   end

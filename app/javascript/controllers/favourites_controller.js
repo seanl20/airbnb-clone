@@ -2,6 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 import axios from 'axios';
 
 export default class extends Controller {
+  HEADERS = { 'ACCEPT': 'application/json' }
 
   favourite(){
     if (this.element.dataset.userLoggedIn === "false") {
@@ -9,28 +10,42 @@ export default class extends Controller {
     }
 
     if ( this.element.dataset.favourited === "true"){
-      axios.delete(this.element.dataset.unfavouriteUrl, {
-        headers: { 
-          'ACCEPT': 'application/json'
-        }
-      })
-      .then((response) => {
-        this.element.dataset.favourited = "false"
-        this.element.setAttribute('fill', '#CED4DA');
-      });
+      this.unfavouriteProperty();
     } else {
-      axios.post(this.element.dataset.favouriteUrl, {
-        user_id: this.element.dataset.userId,
-        property_id: this.element.dataset.propertyId
-      },{
-        headers: { 
-          'ACCEPT': 'application/json'
-        }
-      })
-      .then((response) => {
-        this.element.dataset.favourited = "true"
-        this.element.setAttribute('fill', 'red');
-      });
+      this.favouriteProperty();
     }
+  }
+
+  unfavouriteProperty(){
+    axios.delete(this.getUnfavouritePath(this.element.dataset.favouriteId), {
+      headers: this.HEADERS
+    })
+    .then((response) => {
+      this.element.dataset.favourited = "false"
+      this.element.dataset.favouriteId = '';
+      this.element.setAttribute('fill', '#CED4DA');
+    });
+  }
+
+  getUnfavouritePath(favouriteId){
+    return `/api/favourites/${favouriteId}`
+  }
+
+  favouriteProperty(){
+    axios.post(this.getFavouritePath(), {
+      user_id: this.element.dataset.userId,
+      property_id: this.element.dataset.propertyId
+    },{
+      headers: this.HEADERS
+    })
+    .then((response) => {
+      this.element.dataset.favourited = "true";
+      this.element.dataset.favouriteId = response.data.id;
+      this.element.setAttribute('fill', 'red');
+    });
+  }
+
+  getFavouritePath() {
+    return '/api/favourites';
   }
 }
