@@ -7,6 +7,8 @@ class User < ApplicationRecord
   has_one :profile, dependent: :destroy
   has_many :favourites, dependent: :destroy
   has_many :favourited_properties, through: :favourites, source: :property
+  has_many :reservations, dependent: :destroy
+  has_many :reserved_properties, through: :reservations, source: :property
   
   after_create :create_profile
 
