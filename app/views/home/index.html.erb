@@ -29,6 +29,8 @@
                 class="h-8 w-8 cursor-pointer"
                 data-controller="favourites"
                 data-favourited="<%= property.favourited_by?(user: current_user) %>"
+                data-favourited-colour="red"
+                data-unfavourited-colour="#CED4DA"
                 data-action="click->favourites#favourite"
                 data-user-logged-in="<%= user_signed_in? %>"
                 data-user-id="<%= current_user&.id %>"

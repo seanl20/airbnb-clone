@@ -5,6 +5,5 @@ export default class extends Controller {
     e.preventDefault();
 
     document.getElementById('share-modal-trigger').click();
-    console.log("Share Link Clicked");
   }
 }
