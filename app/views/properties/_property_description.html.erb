@@ -1,0 +1,16 @@
+<div>
+  <div class="flex mb-5">
+    <div class="flex-none cursor-pointer" data-modal-target="closeButton">
+      <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+      </svg>
+    </div>
+  </div>
+  <div>
+    <p class="text-2xl font-medium mb-4">About this space</p>
+
+    <div>
+      <%= content_params[:property].description %>
+    </div>
+  </div>
+</div>
