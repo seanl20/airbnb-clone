@@ -5,15 +5,22 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_one :profile, dependent: :destroy
+  has_one_attached :picture, dependent: :destroy
+
   has_many :favourites, dependent: :destroy
   has_many :favourited_properties, through: :favourites, source: :property
   has_many :reservations, dependent: :destroy
   has_many :reserved_properties, through: :reservations, source: :property
+  has_many :reviews, dependent: :destroy
   
   after_create :create_profile
 
   def create_profile
     self.profile = Profile.new
     self.save!
+  end
+
+  def full_name
+    "#{first_name} #{last_name}".squish
   end
 end
