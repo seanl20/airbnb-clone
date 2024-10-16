@@ -7,6 +7,32 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+require 'open-uri'
+
+user_pictures = []
+
+6.times do
+  user_pictures << URI.parse(Faker::LoremFlickr.image).open
+end
+
+me = User.create!(
+  email: "test@test.com",
+  password: "password",
+  first_name: "Test",
+  last_name: "Account"
+)
+me.picture.attach(io: user_pictures[0], filename: "#{me.full_name}.jpg")
+
+5.times do |i|
+  user = User.create!(
+    email: Faker::Internet.email,
+    password: "password",
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name
+  )
+
+  user.picture.attach(io: user_pictures[i+1], filename: "#{user.full_name}.jpg")
+end
 
 10.times do |i|
   property = Property.create!(
@@ -27,7 +53,8 @@
       reviewable: property, 
       rating: (1..5).to_a.sample, 
       title: Faker::Lorem.word,
-      body: Faker::Lorem.paragraph
+      body: Faker::Lorem.paragraph,
+      user: User.all.sample
     )
   end
 end
