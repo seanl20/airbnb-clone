@@ -39,7 +39,7 @@ class Property < ApplicationRecord
   def available_date
     next_reservation = reservations.future_reservations.first
 
-    return Date.tomorrow.strftime(Constants::Reservations::DATE_FORMAT)..Date.today.end_of_year.strftime(Constants::Reservations::DATE_FORMAT) unless next_reservation
-    Date.tomorrow.strftime(Constants::Reservations::DATE_FORMAT)..next_reservation.reservation_date.strftime(Constants::Reservations::DATE_FORMAT)
+    return Date.tomorrow.strftime(Constants::Reservations::AVAILABLE_DATE_FORMAT)..Date.today.end_of_year.strftime(Constants::Reservations::AVAILABLE_DATE_FORMAT) unless next_reservation
+    Date.tomorrow.strftime(Constants::Reservations::AVAILABLE_DATE_FORMAT)..next_reservation.reservation_date.strftime(Constants::Reservations::AVAILABLE_DATE_FORMAT)
   end
 end
