@@ -5,7 +5,12 @@
   </div>
 
   <!-- Options -->
-  <div class="mt-4 lg:row-span-3 lg:mt-0" data-controller="reservation-component">
+  <div
+    class="mt-4 lg:row-span-3 lg:mt-0"
+    data-controller="reservation-component"
+    data-default-checkin-date="<%= Date.tomorrow.strftime(Constants::Reservations::CHECK_IN_OUT_DATE_FORMAT) %>"
+    data-default-checkout-date="<%= (Date.tomorrow + 1.day).strftime(Constants::Reservations::CHECK_IN_OUT_DATE_FORMAT) %>"
+  >
     <div class="mt-10 lg:mt-0">
       <h2 class="text-2xl font-medium text-gray-900"><%= humanized_money_with_symbol(@property.price) %> night</h2>
 

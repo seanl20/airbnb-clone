@@ -2,6 +2,7 @@
 
 module Constants
   module Reservations
-    DATE_FORMAT = "%d %b"
+    AVAILABLE_DATE_FORMAT = "%d %b"
+    CHECK_IN_OUT_DATE_FORMAT = "%m/%d/%Y"
   end
 end
