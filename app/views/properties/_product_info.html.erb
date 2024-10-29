@@ -10,6 +10,9 @@
     data-controller="reservation-component"
     data-default-checkin-date="<%= Date.tomorrow.strftime(Constants::Reservations::CHECK_IN_OUT_DATE_FORMAT) %>"
     data-default-checkout-date="<%= (Date.tomorrow + 1.day).strftime(Constants::Reservations::CHECK_IN_OUT_DATE_FORMAT) %>"
+    data-nightly-price="<%= humanized_money(@property.price) %>"
+    data-service-fee="<%= Constants::Properties::SERVICE_FEE_PERCENTAGE %>"
+    data-cleaning-fee="<%= humanized_money(Constants::Properties::CLEANING_FEE_MONEY) %>"
   >
     <div class="mt-10 lg:mt-0">
       <h2 class="text-2xl font-medium text-gray-900"><%= humanized_money_with_symbol(@property.price) %> night</h2>
@@ -45,8 +48,8 @@
       
         <dl class="space-y-6">
           <div class="flex items-center justify-between">
-            <dt class="text-sm"><%= humanized_money_with_symbol(@property.price) %> x 7 nights</dt>
-            <dd class="text-sm font-medium text-gray-900">$5.52</dd>
+            <dt class="text-sm"><%= humanized_money_with_symbol(@property.price) %> x <span data-reservation-component-target="numOfNights">7</span> nights</dt>
+            <dd class="text-sm font-medium text-gray-900">$<span data-reservation-component-target="nightlyTotal">5.52</span></dd>
           </div>
           <div class="flex items-center justify-between">
             <dt class="text-sm">Cleaning fee</dt>
@@ -54,11 +57,11 @@
           </div>
           <div class="flex items-center justify-between">
             <dt class="text-sm">Service fee</dt>
-            <dd class="text-sm font-medium text-gray-900">$5.00</dd>
+            <dd class="text-sm font-medium text-gray-900">$<span data-reservation-component-target="serviceFee">5.00</span></dd>
           </div>
           <div class="flex items-center justify-between border-t border-gray-200 pt-6">
             <dt class="text-base font-medium">Total</dt>
-            <dd class="text-base font-medium text-gray-900">$75.52</dd>
+            <dd class="text-base font-medium text-gray-900">$<span data-reservation-component-target="total">75.52</span></dd>
           </div>
         </dl>
         
