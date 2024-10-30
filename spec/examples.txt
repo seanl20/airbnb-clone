@@ -46,4 +46,5 @@ example_id                                                       | status | run_
 ./spec/requests/api/user_by_email_spec.rb[1:1:1:1]               | passed | 0.03583 seconds |
 ./spec/requests/api/user_by_email_spec.rb[1:1:2:1]               | passed | 0.07233 seconds |
 ./spec/requests/home/index_spec.rb[1:1]                          | passed | 8.82 seconds    |
+./spec/requests/properties/reservations/new_spec.rb[1:1]         | passed | 13.44 seconds   |
 ./spec/requests/properties/show_spec.rb[1:1]                     | failed | 0.83782 seconds |

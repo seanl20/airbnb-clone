@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-RSpec.describe "Properties", type: :request do
+RSpec.describe "Get /properties/:id", type: :request do
   let(:property) { FactoryBot.create(:property) }
 
   it "returns a successful response" do
