@@ -1,0 +1,83 @@
+<div class="bg-gray-50">
+  <div class="max-w-2xl mx-auto pt-16 pb-24 px-4 sm:px-6 lg:max-w-7xl lg:px-8">
+    <form class="lg:grid lg:grid-cols-2 lg:gap-x-12 xl:gap-x-16">
+      <!-- Payment -->
+      <div>
+        <h2 class="text-lg font-medium text-gray-900">Payment</h2>
+
+        <div class="mt-6 grid grid-cols-4 gap-y-6 gap-x-4">
+          <div class="col-span-4">
+            <label for="card-number" class="block text-sm font-medium text-gray-700">Card number</label>
+
+            <div class="mt-1">
+              <input id="card-number" name="card-number" type="text" autocomplete="cc-number" class="block w-full border-gray-300 rounded-md focus:ring-indigo-500 boi bpn cql">
+            </div>
+          </div>
+
+          <div class="col-span-4">
+            <label for="name-on-card" class="block text-sm font-medium text-gray-700">Name on card</label>
+            
+            <div class="mt-1">
+              <input id="name-on-card" name="name-on-card" type="text" autocomplete="cc-name" class="block w-full border-gray-300 rounded-md focus:ring-indigo-500 boi bpn cql">
+            </div>
+          </div>
+
+          <div class="ex">
+            <label for="expiration-date" class="block text-sm font-medium text-gray-700">Expiration date (MM/YY)</label>
+
+            <div class="mt-1">
+              <input id="expiration-date" name="expiration-date" type="text" autocomplete="cc-exp" class="block w-full border-gray-300 rounded-md focus:ring-indigo-500 boi bpn cql">
+            </div>
+          </div>
+          
+          <div>
+            <label for="cvc" class="block text-sm font-medium text-gray-700">CVC</label>
+            
+            <div class="mt-1">
+              <input id="cvc" name="cvc" type="text" autocomplete="csc" class="block w-full border-gray-300 rounded-md focus:ring-indigo-500 boi bpn cql">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Reservation Details -->
+      <div>
+        <h2 class="text-lg font-medium text-gray-900">Your Reservation</h2>
+        
+        <div class="mt-4 bg-white border border-gray-200 rounded-lg shadow-sm">          
+          <dl class="space-y-6 border-t border-gray-200 py-6 px-4 sm:px-6">
+            <div class="flex items-center justify-between">
+              <dt class="text-sm">Checkin date</dt>
+              <dd class="text-sm font-medium text-gray-900"><%= @reservations_parameters.checkin_date %></dd>
+            </div>
+            <div class="flex items-center justify-between">
+              <dt class="text-sm">Checkout date</dt>
+              <dd class="text-sm font-medium text-gray-900"><%= @reservations_parameters.checkout_date %></dd>
+            </div>
+
+            <div class="flex items-center justify-between">
+              <dt class="text-sm"><%= humanized_money_with_symbol(@property.price) %> x <%= @reservations_parameters.number_of_nights %> nights</dt>
+              <dd class="text-sm font-medium text-gray-900">$<%= @reservations_parameters.subtotal %></dd>
+            </div>
+            <div class="flex items-center justify-between">
+              <dt class="text-sm">Cleaning fee</dt>
+              <dd class="text-sm font-medium text-gray-900">$<%= @reservations_parameters.cleaning_fee %></dd>
+            </div>
+            <div class="flex items-center justify-between">
+              <dt class="text-sm">Service fee</dt>
+              <dd class="text-sm font-medium text-gray-900">$<%= @reservations_parameters.service_fee %></dd>
+            </div>
+            <div class="flex items-center justify-between border-t border-gray-200 pt-6">
+              <dt class="text-base font-medium">Total</dt>
+              <dd class="text-base font-medium text-gray-900">$<%= @reservations_parameters.total %></dd>
+            </div>
+          </dl>
+
+          <div class="border-t border-gray-200 py-6 px-4 sm:px-6">
+            <button type="submit" class="w-full bg-indigo-600 border border-transparent rounded-md shadow-sm py-3 px-4 text-base font-medium text-white">Confirm order</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
