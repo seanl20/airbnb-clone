@@ -1,47 +1,15 @@
 <div class="bg-gray-50">
   <div class="max-w-2xl mx-auto pt-16 pb-24 px-4 sm:px-6 lg:max-w-7xl lg:px-8">
-    <form class="lg:grid lg:grid-cols-2 lg:gap-x-12 xl:gap-x-16">
+    <div class="lg:grid lg:grid-cols-2 lg:gap-x-12 xl:gap-x-16">
       <!-- Payment -->
-      <div>
+      <div class="mt-10 lg:mt-0">
         <h2 class="text-lg font-medium text-gray-900">Payment</h2>
 
-        <div class="mt-6 grid grid-cols-4 gap-y-6 gap-x-4">
-          <div class="col-span-4">
-            <label for="card-number" class="block text-sm font-medium text-gray-700">Card number</label>
-
-            <div class="mt-1">
-              <input id="card-number" name="card-number" type="text" autocomplete="cc-number" class="block w-full border-gray-300 rounded-md focus:ring-indigo-500 boi bpn cql">
-            </div>
-          </div>
-
-          <div class="col-span-4">
-            <label for="name-on-card" class="block text-sm font-medium text-gray-700">Name on card</label>
-            
-            <div class="mt-1">
-              <input id="name-on-card" name="name-on-card" type="text" autocomplete="cc-name" class="block w-full border-gray-300 rounded-md focus:ring-indigo-500 boi bpn cql">
-            </div>
-          </div>
-
-          <div class="ex">
-            <label for="expiration-date" class="block text-sm font-medium text-gray-700">Expiration date (MM/YY)</label>
-
-            <div class="mt-1">
-              <input id="expiration-date" name="expiration-date" type="text" autocomplete="cc-exp" class="block w-full border-gray-300 rounded-md focus:ring-indigo-500 boi bpn cql">
-            </div>
-          </div>
-          
-          <div>
-            <label for="cvc" class="block text-sm font-medium text-gray-700">CVC</label>
-            
-            <div class="mt-1">
-              <input id="cvc" name="cvc" type="text" autocomplete="csc" class="block w-full border-gray-300 rounded-md focus:ring-indigo-500 boi bpn cql">
-            </div>
-          </div>
-        </div>
+        <%= stripe_elements_tag submit_path: "" %>
       </div>
 
       <!-- Reservation Details -->
-      <div>
+      <div class="mt-10 lg:mt-0">
         <h2 class="text-lg font-medium text-gray-900">Your Reservation</h2>
         
         <div class="mt-4 bg-white border border-gray-200 rounded-lg shadow-sm">          
@@ -78,6 +46,6 @@
           </div>
         </div>
       </div>
-    </form>
+    </div>
   </div>
 </div>

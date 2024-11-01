@@ -17,6 +17,10 @@
     <% if controller_name == "properties" && action_name == "show" %>
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.3.4/dist/css/datepicker.min.css">
     <% end %>
+
+    <% if controller_name == "reservations" && action_name == "new" %>
+      <%= stripe_javascript_tag %>
+    <% end %>
   </head>
 
   <body>
