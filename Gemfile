@@ -20,6 +20,7 @@ gem "rails", "~> 7.2.1"
 gem "sassc-rails"
 gem "sprockets-rails"
 gem "stimulus-rails"
+gem "stripe-rails"
 gem "tailwindcss-rails"
 gem "turbo-rails"
 gem "tzinfo-data", platforms: %i[ windows jruby ]
@@ -47,6 +48,7 @@ group :development, :test do
   # Static analysis for security vulnerabilities [https://brakemanscanner.org/]
   gem "brakeman", require: false
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
+  gem "dotenv"
   gem "faker"
   gem "pry-rails"
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
