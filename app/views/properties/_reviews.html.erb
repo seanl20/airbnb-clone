@@ -7,7 +7,7 @@
           <div class="flex items-center">
             <% 
               property_star_classes = ["text-gray-300", "text-gray-300", "text-gray-300", "text-gray-300", "text-gray-300"]
-
+              
               @property.average_rating.round(0).times do |i|
                 property_star_classes[i] = "text-yellow-400"
               end
