@@ -7,5 +7,7 @@ FactoryBot.define do
     city { Faker::Address.city }
     state { Faker::Address.state }
     country { "United States" }
+    reviews_count { 0 }
+    average_rating { 0 }
   end
 end

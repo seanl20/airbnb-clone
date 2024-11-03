@@ -57,11 +57,13 @@
     </div>
 
     <!-- Image gallery -->
-    <div class="mx-auto mt-6 max-w-2xl sm:px-6 lg:max-w-7xl lg:px-8">
-      <div class="aspect-auto overflow-hidden block">
-        <%= image_tag @property.default_image, class: "h-full w-full object-cover object-center" %>
+    <% if @property.default_image.present? %>
+      <div class="mx-auto mt-6 max-w-2xl sm:px-6 lg:max-w-7xl lg:px-8">
+        <div class="aspect-auto overflow-hidden block">
+          <%= image_tag @property.default_image, class: "h-full w-full object-cover object-center" %>
+        </div>
       </div>
-    </div>
+    <% end %>
 
     <%= render "product_info" %>
 
