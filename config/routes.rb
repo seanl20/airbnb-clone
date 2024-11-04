@@ -20,6 +20,8 @@ Rails.application.routes.draw do
   end
 
   resources :properties, only: :show do
-    resources :reservations, only: [:new, :create], controller: "properties/reservations"
+    resources :reservations, only: :new, controller: "properties/reservations"
   end
+
+  resources :reservation_payments, only: :create
 end
