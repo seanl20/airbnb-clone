@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_11_03_021648) do
+ActiveRecord::Schema[7.2].define(version: 2024_11_04_021525) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -50,6 +50,21 @@ ActiveRecord::Schema[7.2].define(version: 2024_11_03_021648) do
     t.index ["property_id", "user_id"], name: "index_favourites_on_property_id_and_user_id", unique: true
     t.index ["property_id"], name: "index_favourites_on_property_id"
     t.index ["user_id"], name: "index_favourites_on_user_id"
+  end
+
+  create_table "payments", force: :cascade do |t|
+    t.bigint "reservation_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "subtotal_cents"
+    t.string "subtotal_currency"
+    t.integer "cleaning_fee_cents"
+    t.string "cleaning_fee_currency"
+    t.integer "service_fee_cents"
+    t.string "service_fee_currency"
+    t.integer "total_cents"
+    t.string "total_currency"
+    t.index ["reservation_id"], name: "index_payments_on_reservation_id"
   end
 
   create_table "profiles", force: :cascade do |t|
@@ -122,6 +137,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_11_03_021648) do
     t.datetime "updated_at", null: false
     t.string "first_name"
     t.string "last_name"
+    t.string "stripe_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -130,6 +146,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_11_03_021648) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "favourites", "properties"
   add_foreign_key "favourites", "users"
+  add_foreign_key "payments", "reservations"
   add_foreign_key "profiles", "users"
   add_foreign_key "reservations", "properties"
   add_foreign_key "reservations", "users"

@@ -5,7 +5,18 @@
       <div class="mt-10 lg:mt-0">
         <h2 class="text-lg font-medium text-gray-900">Payment</h2>
 
-        <%= stripe_elements_tag submit_path: "" %>
+        <%= 
+          stripe_elements_tag submit_path: reservation_payments_path(
+            property_id: @property.id,
+            user_id: current_user.id,
+            checkin_date: @reservations_parameters.checkin_date,
+            checkout_date: @reservations_parameters.checkout_date,
+            subtotal: @reservations_parameters.subtotal,
+            cleaning_fee: @reservations_parameters.cleaning_fee,
+            service_fee: @reservations_parameters.service_fee,
+            total: @reservations_parameters.total
+          )
+        %>
       </div>
 
       <!-- Reservation Details -->

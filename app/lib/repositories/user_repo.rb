@@ -7,5 +7,9 @@ module Repositories
     def get_by_email(email:)
       User.find_by!(email:)
     end
+
+    def update(id:, attrs:)
+      User.find(id).update!(attrs)
+    end
   end
 end
