@@ -2,7 +2,8 @@ class Reservation < ApplicationRecord
   belongs_to :property
   belongs_to :user
 
-  # validates :reservation_date, presence: true
+  has_one :payment, dependent: :destroy
 
-  # scope :future_reservations, -> { where("reservation_date > ?", Date.today).order(:reservation_date) }
+  validates :checkin_date, presence: true
+  validates :checkout_date, presence: true
 end
