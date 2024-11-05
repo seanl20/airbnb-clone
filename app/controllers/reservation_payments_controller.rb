@@ -1,12 +1,12 @@
 class ReservationPaymentsController < ApplicationController
   def create
-    @stripe_customer = ReservationPayments::Queries::Create.new.call(params: reservation_payments_params, user:)
+    @stripe_customer = ReservationPayments::Queries::Create.new.call(params: reservation_payment_params, user:)
     raise
   end
 
   private
 
-  def reservation_payments_params
+  def reservation_payment_params
     params.permit(
       :stripeToken,
       :property_id,
@@ -21,6 +21,6 @@ class ReservationPaymentsController < ApplicationController
   end
 
   def user
-    @user ||= User.find(reservation_payments_params[:user_id])
+    @user ||= User.find(reservation_payment_params[:user_id])
   end
 end
