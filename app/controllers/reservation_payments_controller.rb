@@ -1,7 +1,8 @@
 class ReservationPaymentsController < ApplicationController
   def create
-    @stripe_customer = ReservationPayments::Queries::Create.new.call(params: reservation_payment_params, user:)
-    raise
+    ReservationPayments::Queries::Create.new.call(params: reservation_payment_params, user:)
+
+    redirect_to root_path
   end
 
   private
