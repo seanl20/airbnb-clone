@@ -36,4 +36,10 @@ class Property < ApplicationRecord
 
     favourited_users.include?(user)
   end
+
+  def available_date
+    next_reservation = reservations.future_reservations.first
+    return Date.tomorrow.strftime(Constants::Reservations::AVAILABLE_DATE_FORMAT)..Date.today.end_of_year.strftime(Constants::Reservations::AVAILABLE_DATE_FORMAT) unless next_reservation
+    next_reservation.checkout_date.strftime(Constants::Reservations::AVAILABLE_DATE_FORMAT)..Date.today.end_of_year.strftime(Constants::Reservations::AVAILABLE_DATE_FORMAT)
+  end
 end

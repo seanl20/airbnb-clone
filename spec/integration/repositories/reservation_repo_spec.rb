@@ -18,7 +18,6 @@ RSpec.describe Repositories::ReservationRepo do
       end
 
       it "returns successful" do
-        puts user
         expect{ create }.to change { Reservation.count }.by(1)
       end
     end
