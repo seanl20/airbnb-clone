@@ -86,17 +86,15 @@
             <!-- Active: "bg-gray-100", Not Active: "" -->
             <div class="py-1", role=none>
               <% if user_signed_in? %>
+                <%= link_to "My profile", profile_path(current_user.profile), class: "block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100", role: "menuitem", tabindex: "-1" %>
                 <%= link_to "Log out", destroy_user_session_path, data: { "turbo-method": :delete }, class: "block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" %>
               <% else %>
-                <a href="#" data-header-target="userAuthLink" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem" tabindex="-1" id="user-menu-item-0">Sign Up</a>
-                <a href="#" data-header-target="userAuthLink" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem" tabindex="-1" id="user-menu-item-1">Log in</a>
+                <%= link_to "Sign up", new_user_registration_path, class: "block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100", role: "menuitem", tabindex: "-1" %>
+                <%= link_to "Log in", new_user_session_path, class: "block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100", role: "menuitem", tabindex: "-1" %>
               <% end %>
-            </div>
-            <div class="py-1", role=none>
-              <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem" tabindex="-1" id="user-menu-item-0">Gift cards</a>
-              <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem" tabindex="-1" id="user-menu-item-1">Airbnb your home</a>
-              <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem" tabindex="-1" id="user-menu-item-1">Host an experience</a>
-              <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem" tabindex="-1" id="user-menu-item-1">Help Centre</a>
+              <div class="py-1", role=none>
+                <%= link_to "Host your home", host_your_home_url, class: "block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100", role: "menuitem", tabindex: "-1" %>
+              </div>
             </div>
           </div>
         </div>
@@ -115,5 +113,3 @@
     </div>
   </div>
 </nav>
-
-<%= render "shared/modal", modal_trigger_id: "user-auth-modal-trigger", modal_content: "home/user_auth_form", content_params: nil %>
