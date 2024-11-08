@@ -25,5 +25,5 @@ Rails.application.routes.draw do
 
   resources :reservation_payments, only: :create
 
-  resources :profiles, only: :show
+  resources :profiles, only: [:show, :update]
 end

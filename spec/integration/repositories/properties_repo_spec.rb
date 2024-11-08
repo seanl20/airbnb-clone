@@ -4,7 +4,7 @@ RSpec.describe Repositories::PropertiesRepo do
   describe "#get" do
     subject(:get) { described_class.new.get(id: property_id) }
 
-    context "user exists" do
+    context "property exists" do
       let!(:property) { FactoryBot.create(:property) }
       let(:property_id) { property.id }
 
@@ -13,7 +13,7 @@ RSpec.describe Repositories::PropertiesRepo do
       end
     end
 
-    context "user does not exists" do
+    context "property does not exists" do
       let(:property_id) { "test" }
 
       it "is not found" do

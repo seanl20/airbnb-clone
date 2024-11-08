@@ -4,6 +4,8 @@ example_id                                                        | status | run
 ./spec/integration/repositories/favourites_repo_spec.rb[1:2:1:1]  | passed | 0.86878 seconds |
 ./spec/integration/repositories/payment_repo_spec.rb[1:1:1:1]     | passed | 0.89636 seconds |
 ./spec/integration/repositories/payment_repo_spec.rb[1:1:2:1]     | passed | 0.01611 seconds |
+./spec/integration/repositories/profile_repo_spec.rb[1:1:1:1]     | passed | 0.1125 seconds  |
+./spec/integration/repositories/profile_repo_spec.rb[1:1:2:1]     | passed | 0.14635 seconds |
 ./spec/integration/repositories/properties_repo_spec.rb[1:1:1:1]  | passed | 0.70773 seconds |
 ./spec/integration/repositories/properties_repo_spec.rb[1:1:2:1]  | passed | 0.00335 seconds |
 ./spec/integration/repositories/reservation_repo_spec.rb[1:1:1:1] | passed | 0.71026 seconds |
