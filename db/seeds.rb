@@ -18,18 +18,19 @@ end
 me = User.create!(
   email: "test@test.com",
   password: "password",
-  first_name: "Test",
-  last_name: "Account"
 )
+
+me.profile.update(first_name: "Test", last_name: "Account")
+
 me.picture.attach(io: user_pictures[0], filename: "#{me.full_name}.jpg")
 
 5.times do |i|
   user = User.create!(
     email: Faker::Internet.email,
-    password: "password",
-    first_name: Faker::Name.first_name,
-    last_name: Faker::Name.last_name
+    password: "password"
   )
+
+  user.profile.update(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name)
 
   user.picture.attach(io: user_pictures[i+1], filename: "#{user.full_name}.jpg")
 end
