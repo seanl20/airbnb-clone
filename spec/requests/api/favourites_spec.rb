@@ -9,6 +9,7 @@ RSpec.describe "Api::Favourites", type: :request do
     }
   end
   let!(:user) { FactoryBot.create(:user) }
+  let!(:profile) { FactoryBot.create(:profile, user:) }
   let!(:property) { FactoryBot.create(:property) }
 
   before { sign_in user}
