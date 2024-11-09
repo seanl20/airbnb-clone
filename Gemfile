@@ -3,6 +3,7 @@ source "https://rubygems.org"
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
 gem "devise"
+gem "country_select"
 gem "dry-rails", github: "dry-rb/dry-rails"
 gem "dry-struct"
 gem "foreman"

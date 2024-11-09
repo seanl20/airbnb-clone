@@ -43,7 +43,7 @@ end
     address_1: Faker::Address.street_address,
     city: Faker::Address.city,
     state: Faker::Address.state,
-    country: "United States",
+    country_code: "US",
     price: Money.from_amount((25..100).to_a.sample)
   )
 
