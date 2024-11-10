@@ -63,16 +63,36 @@ RSpec.describe Repositories::UserRepo do
           expect(user.reload.stripe_id).to eq("test")
         end
       end
+    end
 
-      context "when invalid attrs have been passed" do
+    context "user does not exists" do
+      let(:id) { "test" }
+      let(:attrs) { nil }
+
+      it "returns not found error" do
+        expect{ update }.to raise_error(ActiveRecord::RecordNotFound)
+      end
+    end
+  end
+
+  describe "#update" do
+    subject(:update) { described_class.new.update(id:, attrs:) }
+
+    context "user exists" do
+      let!(:user) { FactoryBot.create(:user, email: "test@example.com") }
+      let(:id) { user.id }
+
+      context "when valid attrs have been passed" do
         let(:attrs) do 
           {
-            stripe: "test"
+            password: "password"
           } 
         end
 
-        it "returns unknown attribute error" do
-          expect{ update }.to raise_error(ActiveModel::UnknownAttributeError)
+        it "is successful" do
+          update
+
+          expect(user.reload.valid_password?("password")).to be true
         end
       end
     end
