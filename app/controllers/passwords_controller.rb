@@ -5,9 +5,13 @@ class PasswordsController < ApplicationController
 
   def show
     @user = Users::Queries::Find.new.call(id: params[:id])
+    authorize @user, policy_class: PasswordPolicy
   end
 
   def update
+    user = Users::Queries::Find.new.call(id: params[:id])
+    authorize user, policy_class: PasswordPolicy
+
     @user = Users::Commands::UpdatePassword.new.call(id: params[:id], password: password_params[:password])
     
     if @user

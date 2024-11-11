@@ -262,6 +262,8 @@ GEM
       stringio
     puma (6.4.2)
       nio4r (~> 2.0)
+    pundit (2.4.0)
+      activesupport (>= 3.0.0)
     racc (1.8.1)
     rack (3.1.7)
     rack-session (2.0.0)
@@ -462,6 +464,7 @@ DEPENDENCIES
   pg (~> 1.1)
   pry-rails
   puma (>= 5.0)
+  pundit
   rails (~> 7.2.1)
   rspec
   rspec-rails

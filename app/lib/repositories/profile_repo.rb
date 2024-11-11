@@ -7,7 +7,7 @@ module Repositories
     def update(id:, attrs:)
       Profile
         .find(id)
-        .update!(Profiles::Changesets::Update.map(attrs))
+        .update!(attrs)
     end
   end
 end

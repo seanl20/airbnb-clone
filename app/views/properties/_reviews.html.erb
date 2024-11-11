@@ -61,10 +61,10 @@
 
       <div class="flow-root">
         <div class="-my-12 divide-y divide-gray-200">
-          <% @property.reviews.includes(:user).each do |review|%>
+          <% @property.reviews.includes(user: :profile).each do |review|%>
             <div class="py-12">
               <div class="flex items-center">
-                <%= image_tag review.user.picture, class: "h-12 w-12 rounded-full", alt: review.user.full_name %>
+                <%= image_tag review.user.profile.picture, class: "h-12 w-12 rounded-full", alt: review.user.full_name %>
 
                 <div class="ml-4">
                   <h4 class="text-sm font-bold text-gray-900"><%= review.user.full_name %></h4>
