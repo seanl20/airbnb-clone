@@ -3,6 +3,8 @@ class Profile < ApplicationRecord
   
   belongs_to :user
 
+  has_one_attached :picture
+
   geocoded_by :address
   after_validation :geocode, if: -> { address.present? && latitude.blank? && longitude.blank?}
 

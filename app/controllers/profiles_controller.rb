@@ -3,9 +3,13 @@
 class ProfilesController < ApplicationController
   def show
     @profile = Profiles::Queries::Find.new.call(id: params[:id])
+    authorize @profile
   end
 
   def update
+    profile = Profiles::Queries::Find.new.call(id: params[:id])
+    authorize profile
+
     @profile = Profiles::Commands::Update.new.call(id: params[:id], params: profile_params)
 
     if @profile
@@ -26,7 +30,8 @@ class ProfilesController < ApplicationController
       :city,
       :state,
       :zip_code,
-      :country_code
+      :country_code,
+      :picture
     )
   end
 end

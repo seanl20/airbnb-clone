@@ -3,9 +3,13 @@
 class AccountsController < ApplicationController
   def show
     @user = Users::Queries::Find.new.call(id: params[:id])
+    authorize @user, policy_class: AccountPolicy
   end
 
   def update
+    user = Users::Queries::Find.new.call(id: params[:id])
+    authorize user, policy_class: AccountPolicy
+
     @user = Users::Commands::Update.new.call(id: params[:id], params: account_params)
 
     if @user
