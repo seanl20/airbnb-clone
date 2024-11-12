@@ -4,6 +4,8 @@ require "rails_helper"
 
 RSpec.describe "PUT /profiles/:id", type: :request do
   let(:user) { FactoryBot.create(:user) }
+  
+  before { sign_in user }
 
   it "returns a successful response" do
     put account_path(user), params: {

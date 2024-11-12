@@ -4,12 +4,12 @@
       <%= render "profiles/sidebar" %>
 
       <div class="space-y-6 sm:px-6 lg:px-0 lg:col-span-9">
-        <section aria-labelledby="personal-details-heading">
+        <section aria-labelledby="password-update-heading">
           <%= form_with model: @user, scope: :password, local: true, url: password_path(@user) do |f| %>
             <div class="shadow sm:rounded-md sm:overflow-hidden">
               <div class="bg-white py-6 px-4 sm:p-6">
                 <div>
-                  <h2 id="personal-details-heading" class="test-lg leading-6 font-medium text-gray-900">Update Password</h2>
+                  <h2 id="password-update-heading" class="test-lg leading-6 font-medium text-gray-900">Update Password</h2>
                   <p class="mt-1 text-sm text-gray-500">Updated your password.</p>
                 </div>
 

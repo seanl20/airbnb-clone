@@ -3,7 +3,10 @@
 require "rails_helper"
 
 RSpec.describe "PUT /profiles/:id", type: :request do
-  let(:profile) { FactoryBot.create(:profile, first_name: "John", last_name: "Doe") }
+  let(:user) { FactoryBot.create(:user) }
+  let(:profile) { FactoryBot.create(:profile, user:, first_name: "John", last_name: "Doe") }
+
+  before { sign_in user }
 
   it "returns a successful response" do
     put profile_path(profile), params: {
