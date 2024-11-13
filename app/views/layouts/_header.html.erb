@@ -92,8 +92,13 @@
                 <%= link_to "Sign up", new_user_registration_path, class: "block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100", role: "menuitem", tabindex: "-1" %>
                 <%= link_to "Log in", new_user_session_path, class: "block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100", role: "menuitem", tabindex: "-1" %>
               <% end %>
+              
               <div class="py-1", role=none>
-                <%= link_to "Host your home", host_your_home_url, class: "block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100", role: "menuitem", tabindex: "-1" %>
+                <% if user_signed_in? && !current_user.host? %>
+                  <%= link_to "Host your home", hostify_path(user_id: current_user.id), data: { "turbo-method": :put }, class: "block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100", role: "menuitem", tabindex: "-1" %>
+                <% elsif !user_signed_in? %>
+                  <%= link_to "Host your home", new_user_registration_path, class: "block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100", role: "menuitem", tabindex: "-1" %>
+                <% end %>
               </div>
             </div>
           </div>

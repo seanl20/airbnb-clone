@@ -75,24 +75,46 @@ RSpec.describe Repositories::UserRepo do
     end
   end
 
-  describe "#update" do
-    subject(:update) { described_class.new.update(id:, attrs:) }
+  describe "#update_password" do
+    subject(:update_password) { described_class.new.update_password(id:, password:) }
 
     context "user exists" do
       let!(:user) { FactoryBot.create(:user, email: "test@example.com") }
       let(:id) { user.id }
 
       context "when valid attrs have been passed" do
-        let(:attrs) do 
-          {
-            password: "password"
-          } 
-        end
+        let(:password) { "password" }
 
         it "is successful" do
-          update
+          update_password
 
           expect(user.reload.valid_password?("password")).to be true
+        end
+      end
+    end
+
+    context "user does not exists" do
+      let(:id) { "test" }
+      let(:password) { nil }
+
+      it "returns not found error" do
+        expect{ update_password }.to raise_error(ActiveRecord::RecordNotFound)
+      end
+    end
+  end
+
+  describe "#hostify" do
+    subject(:hostify) { described_class.new.hostify(id:) }
+
+    context "user exists" do
+      let!(:user) { FactoryBot.create(:user, email: "test@example.com") }
+      let(:id) { user.id }
+
+      context "when valid attrs have been passed" do
+        it "is successful" do
+          hostify
+
+          expect(user.reload.host?).to be true
         end
       end
     end
@@ -102,7 +124,7 @@ RSpec.describe Repositories::UserRepo do
       let(:attrs) { nil }
 
       it "returns not found error" do
-        expect{ update }.to raise_error(ActiveRecord::RecordNotFound)
+        expect{ hostify }.to raise_error(ActiveRecord::RecordNotFound)
       end
     end
   end
