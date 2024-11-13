@@ -19,5 +19,11 @@ module Repositories
         .find(id)
         .update!(password:)
     end
+
+    def hostify(id:)
+      User
+        .find(id)
+        .update!(role: Constants::Users::HOST)
+    end
   end
 end

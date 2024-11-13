@@ -15,10 +15,20 @@ class User < ApplicationRecord
   
   after_create :create_profile
 
+  validates :role, inclusion: { in: Constants::Users::ROLES }, allow_nil: true
+
   def create_profile
     self.profile = Profile.new
     self.save!
   end
 
   delegate :full_name, to: :profile
+
+  def host?
+    role == "host"
+  end
+
+  def customer?
+    role.blank?
+  end
 end
