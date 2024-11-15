@@ -10,6 +10,7 @@ class Property < ApplicationRecord
   has_many :reservations, dependent: :destroy
   has_many :payments, through: :reservations
   has_many :reserved_users, through: :reservations, source: :user
+  belongs_to :user
 
   validates :name, presence: true
   validates :headline, presence: true

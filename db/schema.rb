@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_11_13_025141) do
+ActiveRecord::Schema[7.2].define(version: 2024_11_15_022423) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -103,7 +103,9 @@ ActiveRecord::Schema[7.2].define(version: 2024_11_13_025141) do
     t.integer "reviews_count", default: 0, null: false
     t.decimal "average_rating", default: "0.0", null: false
     t.string "country_code"
+    t.bigint "user_id", null: false
     t.index ["latitude", "longitude"], name: "index_properties_on_latitude_and_longitude"
+    t.index ["user_id"], name: "index_properties_on_user_id"
   end
 
   create_table "reservations", force: :cascade do |t|
@@ -150,6 +152,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_11_13_025141) do
   add_foreign_key "favourites", "users"
   add_foreign_key "payments", "reservations"
   add_foreign_key "profiles", "users"
+  add_foreign_key "properties", "users"
   add_foreign_key "reservations", "properties"
   add_foreign_key "reservations", "users"
   add_foreign_key "reviews", "users"
