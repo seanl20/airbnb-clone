@@ -1,5 +1,6 @@
 FactoryBot.define do
   factory :property do
+    association :user
     name { Faker::Lorem.unique.word }
     headline { Faker::Lorem.unique.sentence }
     description { Faker::Lorem.unique.paragraph }
