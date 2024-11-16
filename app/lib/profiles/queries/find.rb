@@ -2,7 +2,7 @@
 
 module Profiles
   module Queries
-    class Find
+    class Find < Query
       def call(id:)
         Repositories::ProfileRepo.new.get(id:)
       end

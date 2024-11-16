@@ -2,7 +2,7 @@
 
 module Users
   module Commands
-    class UpdatePassword
+    class UpdatePassword < Command
       def call(id:, password:)
         user_update = user_repo.update_password(id:, password:)
 

@@ -6,6 +6,7 @@ module Host
 
     def index
       authorize current_user, policy_class: HostPolicy
+      @properties = Properties::Queries::AllByUser.new.call(user: current_user)
     end
   end
 end

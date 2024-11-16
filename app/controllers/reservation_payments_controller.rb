@@ -1,6 +1,6 @@
 class ReservationPaymentsController < ApplicationController
   def create
-    ReservationPayments::Queries::Create.new.call(params: reservation_payment_params, user:)
+    ReservationPayments::Commands::Create.new.call(params: reservation_payment_params, user:)
 
     redirect_to root_path
   end

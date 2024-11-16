@@ -2,7 +2,7 @@
 
 module Users
   module Commands
-    class Update
+    class Update < Command
       def call(id:, params:)
         user_update = user_repo.update(id:, attrs: params)
 
