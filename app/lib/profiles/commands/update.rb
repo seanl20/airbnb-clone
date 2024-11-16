@@ -2,7 +2,7 @@
 
 module Profiles
   module Commands
-    class Update
+    class Update < Command
       def call(id:, params:)
         attrs = params[:picture] ? Profiles::Changesets::Update.map(params).merge({
           picture: params[:picture]

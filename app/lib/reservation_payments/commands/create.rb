@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 module ReservationPayments
-  module Queries
-    class Create
+  module Commands
+    class Create < Command
       def call(params:, user:)
         stripe_customer = get_stripe_customer(user:)
 

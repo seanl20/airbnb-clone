@@ -2,7 +2,7 @@
 
 module Payments
   module Queries
-    class ListByUserId
+    class ListByUserId < Query
       def call(user_id:)
         user = Repositories::UserRepo.new.get(id: user_id)
 

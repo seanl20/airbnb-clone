@@ -4,6 +4,7 @@ source "https://rubygems.org"
 gem "bootsnap", require: false
 gem "devise"
 gem "country_select"
+gem "dry-monads"
 gem "dry-rails", github: "dry-rb/dry-rails"
 gem "dry-struct"
 gem "foreman"

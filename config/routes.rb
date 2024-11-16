@@ -38,6 +38,6 @@ Rails.application.routes.draw do
   namespace :host do
     get "/dashboard" => "dashboard#index", as: :dashboard
 
-    resources :properties, only: :new
+    resources :properties, except: :index
   end
 end

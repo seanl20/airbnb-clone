@@ -3,7 +3,7 @@
 module Properties
   module Reservations
     module Queries
-      class New
+      class New < Query
         def call(id:, params:)
           property = Repositories::PropertiesRepo.new.get(id:)
 

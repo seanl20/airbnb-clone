@@ -128,6 +128,10 @@ GEM
       concurrent-ruby (~> 1.0)
       dry-core (~> 1.0, < 2)
       zeitwerk (~> 2.6)
+    dry-monads (1.6.0)
+      concurrent-ruby (~> 1.0)
+      dry-core (~> 1.0, < 2)
+      zeitwerk (~> 2.6)
     dry-schema (1.13.4)
       concurrent-ruby (~> 1.0)
       dry-configurable (~> 1.0, >= 1.0.1)
@@ -449,6 +453,7 @@ DEPENDENCIES
   debug
   devise
   dotenv
+  dry-monads
   dry-rails!
   dry-struct
   factory_bot_rails

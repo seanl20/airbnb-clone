@@ -2,7 +2,7 @@
 
 module Properties
   module Queries
-    class Find
+    class Find < Query
       def call(id:)
         property = Repositories::PropertiesRepo.new.get(id:)
 
