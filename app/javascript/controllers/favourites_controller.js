@@ -7,7 +7,7 @@ export default class extends Controller {
   favourite(e){
     e.preventDefault();
     if (this.element.dataset.userLoggedIn === "false") {
-      return document.querySelector('[data-header-target="userAuthLink"]').click();
+      Turbo.visit('/users/sign_in')
     }
 
     if ( this.element.dataset.favourited === "true"){
