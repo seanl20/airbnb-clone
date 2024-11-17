@@ -39,5 +39,7 @@ Rails.application.routes.draw do
     get "/dashboard" => "dashboard#index", as: :dashboard
 
     resources :properties, except: :index
+
+    resources :payments, only: :index
   end
 end
