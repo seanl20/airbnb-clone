@@ -11,5 +11,13 @@ module Repositories
     def create(attrs:)
       Property.create!(attrs)
     end
+
+    def filter_search(params:)
+      property = Property.all
+
+      puts params["city"]
+
+      property = property.where("lower(city) LIKE ?", "%#{params[:city].downcase}%") if params["city"]
+    end
   end
 end

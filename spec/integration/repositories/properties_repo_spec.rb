@@ -89,4 +89,22 @@ RSpec.describe Repositories::PropertiesRepo do
       end
     end
   end
+
+  describe "#filter_search" do
+    subject(:filter_search) { described_class.new.filter_search(params:) }
+
+    let!(:property) { FactoryBot.create(:property, city: "city") }
+
+    context "when city are passed" do
+      let(:params) do 
+        {
+          city: "city"
+        } 
+      end
+
+      it "create property" do
+        expect(filter_search).to match_unordered_elements(property)
+      end
+    end
+  end
 end
