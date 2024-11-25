@@ -98,7 +98,9 @@ RSpec.describe Repositories::PropertiesRepo do
     context "when city are passed" do
       let(:params) do 
         {
-          city: "city"
+          "city" => "city",
+          "checkin_date" => "11/03/2024",
+          "checkout_date" => "11/05/2024"
         } 
       end
 
