@@ -7,7 +7,32 @@
     </div>
 
     <div class="col-span-3">
-      <p>Map</p>
+      <div id="map"></div>
     </div>
   </div>
 </div>
+
+<script async
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBfL56TYfr3u-LGYgJrw3qeIjj-KeS7W5c&loading=async&callback=initMap">
+</script>
+
+<style>
+  #map {
+    height: 100%;
+  }
+</style>
+
+<script>
+  let map;
+
+  async function initMap() {
+    const { Map } = await google.maps.importLibrary("maps");
+
+    map = new Map(document.getElementById("map"), {
+      center: { lat: -34.397, lng: 150.644 },
+      zoom: 8,
+    });
+  }
+
+  initMap();
+</script>
