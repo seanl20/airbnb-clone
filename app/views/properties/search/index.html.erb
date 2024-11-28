@@ -1,4 +1,4 @@
-<div class="container mx-auto">
+<div class="container mx-auto" data-controller="google-maps">
   <div class="grid grid-cols-5 gap-4">
     <div class="col-span-2">
       <ul role="list"  class="grid grid-cols-1 gap-x-4 gap-y-8 sm:grid-cols-4 sm:gap-x-6 lg:grid-cols-2">
@@ -7,7 +7,7 @@
     </div>
 
     <div class="col-span-3">
-      <div id="map"></div>
+      <div data-google-maps-target="map"></div>
     </div>
   </div>
 </div>
@@ -16,23 +16,7 @@
   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBfL56TYfr3u-LGYgJrw3qeIjj-KeS7W5c&loading=async&callback=initMap">
 </script>
 
-<style>
-  #map {
-    height: 100%;
-  }
-</style>
-
-<script>
-  let map;
-
-  async function initMap() {
-    const { Map } = await google.maps.importLibrary("maps");
-
-    map = new Map(document.getElementById("map"), {
-      center: { lat: -34.397, lng: 150.644 },
-      zoom: 8,
-    });
-  }
-
-  initMap();
-</script>
+<script
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBfL56TYfr3u-LGYgJrw3qeIjj-KeS7W5c&libraries=maps,marker&loading=async&callback=initMap"
+  defer
+></script>
